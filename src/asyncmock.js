@@ -29,7 +29,7 @@ const products = [
     name: "Dark Chocolate",
     colorway: "DARK CHOCOLATE/ARCHAEO BROWN/BLACK/CRIMSON BLISS",
     price: "102",
-    category: "women",
+    category: "men",
     img: "/images/j1midchocolate.png",
     stock: "30",
     description:
@@ -53,7 +53,7 @@ const products = [
     name: "Travis Cactus Jack SG",
     colorway: "SATURN GOLD/TEA TREE MIST/TENT",
     price: "411",
-    category: "women",
+    category: "men",
     img: "/images/airmax1traviss.png",
     stock: "2",
     description:
@@ -71,12 +71,107 @@ const products = [
     description:
       "Nike and Dutch artist and sneaker collab veteran Parra teamed up for an Olympic inspired Nike SB Dunk Low with the Nike SB Dunk Low Parra Abstract Art.",
   },
+  {
+    id: "7",
+    model: "Jordan 1 Mid",
+    name: "Light Smoke Grey (PS)",
+    colorway: "LIGHT SMOKE GREY/WHITE-BLACK",
+    price: "65",
+    category: "child",
+    img: "/images/psj1smojegrey.png",
+    stock: "8",
+    description:
+      "The children's Jordan 1 Mid Light Smoke Grey (PS) features a Light Smoke Grey and white leather upper with panels that wrap around the bright white base at the ankles, eyestays, and toe box.",
+  },
+  {
+    id: "8",
+    model: "Jordan 4 Retro",
+    name: "White Lemon Pink (PS)",
+    colorway: "WHITE/LEMON VENOM-PINK BLAST",
+    price: "80",
+    category: "child",
+    img: "/images/psj4lemonpink.png",
+    stock: "8",
+    description: "White Lemon Pink (PS)",
+  },
+  {
+    id: "9",
+    model: "Jordan 6 Retro",
+    name: "Carmine (2021) (PS)",
+    colorway: "WHITE/BLACK-CARMINE",
+    price: "80",
+    category: "child",
+    img: "/images/psj6carmine.png",
+    stock: "8",
+    description: "Carmine (2021) (PS).",
+  },
+  {
+    id: "10",
+    model: "Jordan 12 Retro",
+    name: "Emoji (PS)",
+    colorway: "WHITE/LEMON VENOM/VIVID SULFUR/UNIVERSITY BLUE",
+    price: "90",
+    category: "child",
+    img: "/images/psj12emoji.png",
+    stock: "8",
+    description: "Emoji (PS).",
+  },
+  {
+    id: "11",
+    model: "Jordan 1 High Zoom Air CMFT",
+    name: "Easter (W)",
+    colorway: "WHITE/GREY HEATHER-OLIVE AURA-KHAKI",
+    price: "140",
+    category: "women",
+    img: "/images/wj1easter.png",
+    stock: "8",
+    description: "Jordan 1 High Zoom Air CMFT.",
+  },
+  {
+    id: "12",
+    model: "Jordan 1 High Zoom Air CMFT",
+    name: "Pink Oxford (W)",
+    colorway: "PINK OXFORD/PLUM FOG-SUMMIT WHITE",
+    price: "140",
+    category: "women",
+    img: "/images/wj1pinkoxford.png",
+    stock: "8",
+    description: "Jordan 1 High Zoom Air CMFT, Pink Oxford (W).",
+  },
+  {
+    id: "13",
+    model: "Jordan 4 Retro",
+    name: "Shimmer (W)",
+    colorway: "SHIMMER/BRONZE ECLIPSE-ORANGE QUARTZ-METALLIC SILVER",
+    price: "190",
+    category: "women",
+    img: "/images/wj4shimmer.png",
+    stock: "8",
+    description:
+      "The Air Jordan 4 Shimmer (W) arrives with a buttery beige Durabuck upper with semi-translucent Wings and a monotone Orange Bronze heel tab.",
+  },
 ];
 
 export const getProducts = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(products);
-    }, 2000);
+    }, 500);
+  });
+};
+
+export const getProductsByCategory = (categoryId) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(products.filter((prod) => prod.category === categoryId));
+    }, 500);
+  });
+};
+
+export const getProductsById = (id) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(products.find((prod) => prod.id === id));
+    }, 500);
   });
 };

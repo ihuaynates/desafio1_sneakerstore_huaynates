@@ -1,0 +1,28 @@
+.menuOptions {
+  display: flex;
+}
+
+.activeLink {
+  background: blue;
+  color: white;
+}
+
+.link {
+  background: white;
+}
+
+.cartWidgetContainer {
+  display: flex;
+  align-items: center;
+}
+
+.cartWidget {
+  width: 40px;
+  height: 40px;
+}
+
+.cartNumber {
+  font-size: x-large;
+  color: blue;
+  font-weight: bold;
+}

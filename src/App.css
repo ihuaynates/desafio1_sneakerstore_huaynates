@@ -23,6 +23,10 @@ nav {
 a {
   text-decoration: none !important;
   color: #271fe0;
+  font-size: large;
+  font-weight: bold;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 .menu {
@@ -58,48 +62,6 @@ nav ul li:hover::after {
   display: flex;
   flex-wrap: wrap;
   /* justify-content: space-around;*/
-}
-
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-  transition: 0.2s;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 20px;
-}
-
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
-}
-
-.cardContainer {
-  padding: 2px 5px;
-}
-
-.cardText {
-  margin: 5px;
-  text-align: left;
-  letter-spacing: 0.004rem;
-  line-height: 0.9;
-}
-
-.cardTextTitulo {
-  font-size: large;
-}
-
-.cardTextSubTitulo {
-  font-size: small;
-}
-
-.cardTextPrecio {
-  font-size: large;
-  font-weight: bold;
-  color: #271fe0;
-}
-
-.cardImg {
-  width: 200px;
 }
 
 .App {
