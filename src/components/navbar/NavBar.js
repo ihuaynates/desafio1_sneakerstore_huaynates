@@ -1,7 +1,7 @@
 import "./NavBar.css";
 import logo from "../images/sneakerlogo_short.svg";
-import cartWidget from "../images/cartwidget.png";
 import { Link, NavLink } from "react-router-dom";
+import CartWidget from "../CartWidget/CartWidget";
 
 const NavBar = () => {
   return (
@@ -49,10 +49,7 @@ const NavBar = () => {
                 </li>
               </ul>
             </div>
-            <div className="cartWidgetContainer">
-              <img className="cartWidget" src={cartWidget} alt="cart-widget" />{" "}
-              <p className="cartNumber">0</p>
-            </div>
+            <CartWidget/>
           </div>
         </nav>
       </div>

@@ -1,15 +1,22 @@
 import "./ItemDetail.css";
+import { useContext, useState } from "react";
+import ItemCount from "../ItemCount/ItemCount";
+import CartContext from "../../context/CartContext";
+import { Link } from 'react-router-dom'
 
-const ItemDetail = ({
-  id,
-  name,
-  img,
-  model,
-  price,
-  colorway,
-  category,
-  description,
-}) => {
+const ItemDetail = ({id,name,img,model,price,colorway,category,description,stock}) => {
+
+const [quantityAdded, setQuantityAdded] =useState(0)
+
+const {addItem} = useContext(CartContext)
+
+const handleOnAdd = (quantity) => {
+
+  addItem({id,name,price,quantity})
+  setQuantityAdded(quantity)
+
+}
+
   return (
     <>
       <div className="cardDetail">
@@ -33,7 +40,10 @@ const ItemDetail = ({
           <p className="cardDetailText cardDetailTextDescription">
             {description}
           </p>
-          <button className="buttonAdd">Agregar al Carrito</button>
+          <br />
+          <br />
+          {quantityAdded===0 ? <ItemCount stock={stock} onAdd={handleOnAdd}/> : <Link to='/cart' >Terminar Compra </Link>  }
+          <br />
         </div>
       </div>
     </>

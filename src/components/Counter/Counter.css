@@ -1,0 +1,10 @@
+.counter {
+    display: flex;
+    justify-content: space-around;
+  }
+
+.count {
+    margin: 0px;
+    font-size:x-large;
+    font-weight: bold;
+  }

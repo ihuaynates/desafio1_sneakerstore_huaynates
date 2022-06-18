@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import NavBar from "./components/navbar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {CartProvider} from './context/CartContext'
+
+
 
 function App() {
+
+
+
   return (
     <div className="App">
       {/*<NavBar />
@@ -27,15 +33,17 @@ function App() {
           Learn React
         </a>
       </header> */}
-
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/category/:categoryId" element={<ItemListContainer />} />
-          <Route path="/detail/:productId" element={<ItemDetailContainer />} />
-        </Routes>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/category/:categoryId" element={<ItemListContainer />} />
+            <Route path="/detail/:productId" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<h1>Cart</h1> } />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }
