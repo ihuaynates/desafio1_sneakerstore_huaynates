@@ -1,0 +1,95 @@
+.cartDetailTitle {
+    /* Add shadows to create the "card" effect */
+    margin: 0 auto;
+    padding: 20px;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+.cartItem {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .cartItemText {
+    margin: 5px;
+    text-align: left;
+    letter-spacing: 0.004rem;
+    line-height: 0.9;
+    font-size: large;
+    font-weight: bold;
+  }
+  
+ 
+  .cartItemTextPrecio {
+    font-weight: bold;
+    color: #271fe0;
+  }
+  
+  
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+    width: 80%;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.alignCenter {
+  text-align: center;
+}
+  
+  th, td {
+    text-align: left;
+    padding: 30px 50px;
+    letter-spacing: 0.004rem;
+    line-height: 0.9;
+    font-size: large;
+    font-weight: bold;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+  
+  th {
+    background-color:#626269;
+    color: white;
+  }
+
+  .tableFooter{
+    color:  #271fe0;
+    font-size: 40px;
+    margin: 0 auto;
+    font-weight: bold;
+  }
+
+  .orderButton {
+    color: white;
+    background-color: #271fe0;
+    padding: 10px 50px;
+    border-radius: 0.4rem;
+    font-weight: 100;
+    font-size: large;
+  }
+
+  .deleteButton {
+    color: #e01f1f;
+    background-color: white;
+    padding: 5px 25px;
+    border-radius: 0.4rem;
+    font-weight: 50;
+    font-size:medium;
+  }

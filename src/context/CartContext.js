@@ -9,7 +9,7 @@ export const CartProvider = ({children}) => {
 
 const addItem = (productToAdd) => {
 
-    if( ! isInCart(productToAdd.id))   {
+    if( !isInCart(productToAdd.id))   {
         setCart([...cart, productToAdd])
     }
 }
@@ -37,10 +37,23 @@ return totalQuantity
 
 }
 
+const getCartTotal =() => {
+
+    let totalCart =0
+    
+    cart.forEach(prod => {
+        console.log(prod.quantity)
+        totalCart+=prod.quantity*prod.price
+    })
+    
+    return totalCart
+    
+    }
+
 
 return (
 
-        <CartContext.Provider value={{cart,addItem,removeItem,isInCart,getCartQuantity}}  >
+        <CartContext.Provider value={{cart,addItem,removeItem,isInCart,getCartQuantity,getCartTotal}}  >
         {children}
         </CartContext.Provider>
 

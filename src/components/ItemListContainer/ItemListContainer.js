@@ -1,9 +1,11 @@
 import "./ItemListContainer.css";
 import { useState, useEffect } from "react";
-import { getProducts, getProductsByCategory } from "../../asyncmock";
+/*import { getProducts, getProductsByCategory } from "../../asyncmock";*/
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import loadingGif from "../images/loading_icon2.gif";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../services/firebase";
 
 const ItemListContainer = (props) => {
   const [products, setProducts] = useState([]);
@@ -14,7 +16,23 @@ const ItemListContainer = (props) => {
   useEffect(() => {
     setLoading(true);
 
-    if (!categoryId) {
+    const collectionRef=  categoryId ? (query(collection(db,'products'), where('category','==', categoryId) ) ) : (collection(db,'products'))
+
+    getDocs(collectionRef).then ( response =>{
+
+      const productsFormatted= response.docs.map( doc => {
+        return { id: doc.id, ...doc.data()   }
+      } )
+      setProducts(productsFormatted)
+    }).catch(error =>{
+      console.log(error)
+    }).finally( ()=>{
+      setLoading(false)
+    }
+
+    )
+
+   /* if (!categoryId) {
       getProducts()
         .then((response) => {
           setProducts(response);
@@ -30,7 +48,7 @@ const ItemListContainer = (props) => {
         .finally(() => {
           setLoading(false);
         });
-    }
+    }*/
   }, [categoryId]);
 
   if (loading) {
