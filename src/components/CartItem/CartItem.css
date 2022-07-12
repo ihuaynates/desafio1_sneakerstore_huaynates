@@ -45,6 +45,17 @@
     width: 80%;
 }
 
+.styled-tablesummary {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  width: 100%;
+}
+
 .alignRight {
     text-align: right;
 }
@@ -60,6 +71,15 @@
     line-height: 0.9;
     font-size: large;
     font-weight: bold;
+  }
+
+  .thsummary, .tdsummary {
+    text-align: left;
+    padding: 10px 10px;
+    letter-spacing: 0.004rem;
+    line-height: 0.9;
+    font-size: medium;
+    font-weight:100;
   }
   
   tr:nth-child(even){background-color: #f2f2f2}
@@ -83,13 +103,33 @@
     border-radius: 0.4rem;
     font-weight: 100;
     font-size: large;
+    cursor: pointer;
   }
 
   .deleteButton {
     color: #e01f1f;
     background-color: white;
-    padding: 5px 25px;
+    padding: 5px 15px;
     border-radius: 0.4rem;
     font-weight: 50;
     font-size:medium;
+    cursor: pointer;
+  }
+
+  .checkoutButton {
+    color: white;
+    background-color: #271fe0;
+    cursor: pointer;
+    padding: 5px 25px;
+    font-size:x-large;
+    border-radius: 5px;
+    width: 300px;
+    justify-content: center;
+    margin: 10px auto;
+    font-weight: bold;
+  }
+
+  .buttonClean{
+    background-color: #e86464;
+    width: 300px;
   }

@@ -11,23 +11,17 @@ const ItemDetailContainer = () => {
 
   const params = useParams();
 
-  console.log(params);
-
   useEffect(() => {
-    
-    const docRef= doc(db,'products',params.productId)
-    
-    getDoc(docRef).then ( doc => {
+    const docRef = doc(db, "products", params.productId);
 
-      const productsFormatted= { id: doc.id, ...doc.data()}
-      setProduct(productsFormatted)
-    }).catch(error=>{
-      console.log(error)
-    })
-
-    /*getProductsById(params.productId).then((response) => {
-      setProduct(response);
-    });*/
+    getDoc(docRef)
+      .then((doc) => {
+        const productsFormatted = { id: doc.id, ...doc.data() };
+        setProduct(productsFormatted);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (

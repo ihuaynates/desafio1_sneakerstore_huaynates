@@ -1,64 +1,65 @@
 import { useState, createContext } from "react";
 
+export const CartContext = createContext();
 
-export const CartContext = createContext()
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState([]);
 
-export const CartProvider = ({children}) => {
-
-    const [cart, setCart] = useState([])
-
-const addItem = (productToAdd) => {
-
-    if( !isInCart(productToAdd.id))   {
-        setCart([...cart, productToAdd])
+  const addItem = (productToAdd) => {
+    if (!isInCart(productToAdd.id)) {
+      setCart([...cart, productToAdd]);
     }
-}
+  };
 
-const removeItem = (id) => {
-    const cartWithoutProduct = cart.filter(prod=>prod.id !== id)
+  const removeItem = (id) => {
+    const cartWithoutProduct = cart.filter((prod) => prod.id !== id);
 
-    setCart(cartWithoutProduct)
-}
+    setCart(cartWithoutProduct);
+  };
 
-const isInCart=(id) => {
-    return cart.some(prod => prod.id === id)
-}
+  const clearCart = () => {
+    setCart([]);
+  };
 
-const getCartQuantity =() => {
+  const isInCart = (id) => {
+    return cart.some((prod) => prod.id === id);
+  };
 
-let totalQuantity =0
+  const getCartQuantity = () => {
+    let totalQuantity = 0;
 
-cart.forEach(prod => {
-    console.log(prod.quantity)
-totalQuantity+=prod.quantity
-})
+    cart.forEach((prod) => {
+      totalQuantity += prod.quantity;
+    });
 
-return totalQuantity
+    return totalQuantity;
+  };
 
-}
+  const getCartTotal = () => {
+    let totalCart = 0;
 
-const getCartTotal =() => {
+    cart.forEach((prod) => {
+      totalCart += prod.quantity * prod.price;
+    });
 
-    let totalCart =0
-    
-    cart.forEach(prod => {
-        console.log(prod.quantity)
-        totalCart+=prod.quantity*prod.price
-    })
-    
-    return totalCart
-    
-    }
+    return totalCart;
+  };
 
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        addItem,
+        removeItem,
+        isInCart,
+        getCartQuantity,
+        getCartTotal,
+        clearCart,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
 
-return (
-
-        <CartContext.Provider value={{cart,addItem,removeItem,isInCart,getCartQuantity,getCartTotal}}  >
-        {children}
-        </CartContext.Provider>
-
-)
-
-}
-
-export default CartContext
+export default CartContext;

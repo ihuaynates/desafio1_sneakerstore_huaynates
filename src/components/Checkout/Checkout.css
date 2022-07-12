@@ -1,0 +1,20 @@
+input[type="text"] {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dcdce4;
+  border-radius: 4px;
+  background-color: #fafafc;;
+}
+
+form label {
+    font-size:medium ;
+    justify-items: left;
+  }
+
+.checkoutForm{
+display: flex;
+justify-content: space-around;
+padding-top: 20px;
+}  
